@@ -9,18 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@Slf4j
-public class DoctorService {
 
-    @Autowired
-    private DoctorRepo doctorRepo ;
+public interface DoctorService {
 
-    public List<Doctor> getAllDoctor(){
-        System.out.println("Inside getAllDoctors Services");
-        return doctorRepo.findAll();
-    }
-    public Optional<Doctor> getDoctorByID(Long id){
-        return doctorRepo.findById(id) ;
-    }
+   List<Doctor> getDoctorList();
+   Doctor saveDoctorList(Doctor doctorList);
+
+   Doctor UpdateDoctorList(Doctor doctor,Long id);
+
+   void deleteDoctor(Long id);
 }
